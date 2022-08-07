@@ -1,0 +1,37 @@
+{
+  "name": "modify_name",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "xo"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.4",
+    "zingchart": "^2.9.9"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^1.3.0",
+    "prettier": "2.6.2",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.14",
+    "xo": "^0.48.0"
+  },
+  "xo": {
+    "space": true,
+    "prettier": true,
+    "rules": {
+      "unicorn/filename-case": "off",
+      "import/extensions": "off"
+    }
+  }
+}
