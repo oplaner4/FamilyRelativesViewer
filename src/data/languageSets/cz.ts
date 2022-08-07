@@ -1,0 +1,26 @@
+import { Relative } from '../relative';
+import { RelativeLabelLanguageSet } from '../relativeProps';
+
+export const czLanguageSet : RelativeLabelLanguageSet = {};
+czLanguageSet[Relative.FATHER] = 'Otec';
+czLanguageSet[Relative.MOTHER] = 'Matka';
+czLanguageSet[Relative.BROTHER] = 'Bratr';
+czLanguageSet[Relative.SISTER] = 'Sestra';
+czLanguageSet[Relative.UNCLE] = 'Strýc';
+czLanguageSet[Relative.AUNT] = 'Teta';
+czLanguageSet[Relative.GRANDFATHER] = 'Dědeček';
+czLanguageSet[Relative.GRANDMOTHER] = 'Babička';
+czLanguageSet[Relative.COUSINMALE] = 'Bratranec';
+czLanguageSet[Relative.COUSINFEMALE] = 'Sestřenice';
+czLanguageSet[Relative.HUSBAND] = 'Manžel/Druh';
+czLanguageSet[Relative.WIFE] = 'Manželka/Družka';
+czLanguageSet[Relative.SON] = 'Syn';
+czLanguageSet[Relative.DAUGHTER] = 'Dcera';
+czLanguageSet[Relative.NEPHEW] = 'Synovec';
+czLanguageSet[Relative.NIECE] = 'Neteř';
+czLanguageSet[Relative.GRANDSON] = 'Vnuk';
+czLanguageSet[Relative.GRANDDAUGHTER] = 'Vnučka';
+czLanguageSet[Relative.GREATGRANDFATHER] = 'Pradědeček';
+czLanguageSet[Relative.GREATGRANDMOTHER] = 'Prababička';
+czLanguageSet[Relative.GREATGRANDSON] = 'Pravnuk';
+czLanguageSet[Relative.GREATGRANDDAUGHTER] = 'Pravnučka';

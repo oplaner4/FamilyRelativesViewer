@@ -1,0 +1,26 @@
+import { Relative } from '../relative';
+import { RelativeLabelLanguageSet } from '../relativeProps';
+
+export const enLanguageSet : RelativeLabelLanguageSet = {};
+enLanguageSet[Relative.FATHER] = 'Father';
+enLanguageSet[Relative.MOTHER] = 'Mother';
+enLanguageSet[Relative.BROTHER] = 'Brother';
+enLanguageSet[Relative.SISTER] = 'Sister';
+enLanguageSet[Relative.UNCLE] = 'Uncle';
+enLanguageSet[Relative.AUNT] = 'Aunt';
+enLanguageSet[Relative.GRANDFATHER] = 'Grandfather';
+enLanguageSet[Relative.GRANDMOTHER] = 'Grandmother';
+enLanguageSet[Relative.COUSINMALE] = 'Cousin (male)';
+enLanguageSet[Relative.COUSINFEMALE] = 'Cousin (female)';
+enLanguageSet[Relative.HUSBAND] = 'Husband';
+enLanguageSet[Relative.WIFE] = 'Wife';
+enLanguageSet[Relative.SON] = 'Son';
+enLanguageSet[Relative.DAUGHTER] = 'Daughter';
+enLanguageSet[Relative.NEPHEW] = 'Nephew';
+enLanguageSet[Relative.NIECE] = 'Niece';
+enLanguageSet[Relative.GRANDSON] = 'Grandson';
+enLanguageSet[Relative.GRANDDAUGHTER] = 'Grandaughter';
+enLanguageSet[Relative.GREATGRANDFATHER] = 'Greatgrandfather';
+enLanguageSet[Relative.GREATGRANDMOTHER] = 'Greatgrandmother';
+enLanguageSet[Relative.GREATGRANDSON] = 'Greatgrandson';
+enLanguageSet[Relative.GREATGRANDDAUGHTER] = 'Greatgranddaughter';
