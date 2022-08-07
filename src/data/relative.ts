@@ -1,4 +1,4 @@
-export const enum Relative {
+export enum Relative {
     FATHER = 0,
     MOTHER = 1,
     BROTHER = 2,

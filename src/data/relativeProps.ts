@@ -3,31 +3,39 @@ import { enLanguageSet } from "./languageSets/en";
 import { Relative } from "./relative";
 import { Sex } from "./sex";
 
+export enum RelativeDirection {
+    SIBLING = 0,
+    PARENT = -1,
+    CHILD = 1,
+};
+
 export const RelativeNavigation : Record<number, Array<number>> = {};
-RelativeNavigation[Relative.FATHER] = [-1];
+RelativeNavigation[Relative.FATHER] = [RelativeDirection.PARENT];
 RelativeNavigation[Relative.MOTHER] = RelativeNavigation[Relative.FATHER];
-RelativeNavigation[Relative.BROTHER] = [0];
+RelativeNavigation[Relative.BROTHER] = [RelativeDirection.SIBLING];
 RelativeNavigation[Relative.SISTER] = RelativeNavigation[Relative.BROTHER];
-RelativeNavigation[Relative.UNCLE] = [-1, 0];
+RelativeNavigation[Relative.UNCLE] = [RelativeDirection.PARENT, RelativeDirection.SIBLING];
 RelativeNavigation[Relative.AUNT] = RelativeNavigation[Relative.UNCLE];
-RelativeNavigation[Relative.GRANDFATHER] = [-2];
+RelativeNavigation[Relative.GRANDFATHER] = [RelativeDirection.PARENT, RelativeDirection.PARENT];
 RelativeNavigation[Relative.GRANDMOTHER] = RelativeNavigation[Relative.GRANDFATHER];
-RelativeNavigation[Relative.COUSINMALE] = [-1, 0, 1];
+RelativeNavigation[Relative.COUSINMALE] = [
+    RelativeDirection.PARENT, RelativeDirection.SIBLING, RelativeDirection.CHILD
+];
 RelativeNavigation[Relative.COUSINFEMALE] = RelativeNavigation[Relative.COUSINMALE];
-RelativeNavigation[Relative.HUSBAND] = [0];
+RelativeNavigation[Relative.HUSBAND] = [RelativeDirection.SIBLING];
 RelativeNavigation[Relative.WIFE] = RelativeNavigation[Relative.HUSBAND];
-RelativeNavigation[Relative.SON] = [1];
+RelativeNavigation[Relative.SON] = [RelativeDirection.CHILD];
 RelativeNavigation[Relative.DAUGHTER] = RelativeNavigation[Relative.SON];
-RelativeNavigation[Relative.NEPHEW] = [0, 1];
+RelativeNavigation[Relative.NEPHEW] = [RelativeDirection.SIBLING, RelativeDirection.CHILD];
 RelativeNavigation[Relative.NIECE] = RelativeNavigation[Relative.NEPHEW];
-RelativeNavigation[Relative.GRANDSON] = [2];
+RelativeNavigation[Relative.GRANDSON] = [RelativeDirection.CHILD, RelativeDirection.CHILD];
 RelativeNavigation[Relative.GRANDDAUGHTER] = RelativeNavigation[Relative.GRANDSON];
-RelativeNavigation[Relative.GREATGRANDFATHER] = [-3];
+RelativeNavigation[Relative.GREATGRANDFATHER] = [RelativeDirection.PARENT, RelativeDirection.PARENT, RelativeDirection.PARENT];
 RelativeNavigation[Relative.GREATGRANDMOTHER] = RelativeNavigation[Relative.GREATGRANDFATHER];
-RelativeNavigation[Relative.GREATGRANDSON] = [3];
+RelativeNavigation[Relative.GREATGRANDSON] = [RelativeDirection.CHILD, RelativeDirection.CHILD, RelativeDirection.CHILD];
 RelativeNavigation[Relative.GREATGRANDDAUGHTER] = RelativeNavigation[Relative.GREATGRANDSON];
 
-export const RelativeSex : Record<number, Sex> = {}
+export const RelativeSex : Record<number, Sex> = {};
 RelativeSex[Relative.FATHER] = Sex.MALE;
 RelativeSex[Relative.MOTHER] = Sex.FEMALE;
 RelativeSex[Relative.BROTHER] = Sex.MALE;

@@ -1,7 +1,7 @@
 {
-  "name": "modify_name",
+  "name": "family-relatives-viewer",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -13,9 +13,9 @@
     "bootstrap": "^5.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
+    "react-d3-tree": "^3.3.4",
     "react-dom": "^18.2.0",
-    "recoil": "^0.7.4",
-    "zingchart": "^2.9.9"
+    "recoil": "^0.7.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",

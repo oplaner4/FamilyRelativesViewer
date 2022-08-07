@@ -1,6 +1,5 @@
 import {selector} from 'recoil';
-import {StatsInfo} from '../types';
-import {showSongsInQueueAtom, songsInQueueListAtom, songsListAtom, songsPlayedAtom} from './atom';
+/*import {showSongsInQueueAtom, songsInQueueListAtom, songsListAtom, songsPlayedAtom} from './atom';
 
 export const songsListSelector = selector({
   key: 'songsListSelectorKey',
@@ -35,3 +34,4 @@ export const songsStatsSelector = selector({
     return result;
   },
 });
+*/
