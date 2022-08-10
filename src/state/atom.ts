@@ -1,6 +1,7 @@
 import {atom} from 'recoil';
+import { Language } from '../data/localization/translation';
 
-export const languageAtom = atom<string>({
+export const languageAtom = atom<Language>({
   key: 'language',
-  default: 'en',
+  default: Language.En,
 });

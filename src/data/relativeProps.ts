@@ -1,67 +1,59 @@
-import { czLanguageSet } from "./languageSets/cz";
-import { enLanguageSet } from "./languageSets/en";
 import { Relative } from "./relative";
-import { Sex } from "./sex";
+import { HumanSex } from "./humanSex";
 
-export enum RelativeDirection {
-    SIBLING = 0,
-    PARENT = -1,
-    CHILD = 1,
+export enum DirectRelationship {
+    Sibling = 0,
+    Parent = -1,
+    Child = 1,
+    Partner = 2,
 };
 
 export const RelativeNavigation : Record<number, Array<number>> = {};
-RelativeNavigation[Relative.FATHER] = [RelativeDirection.PARENT];
-RelativeNavigation[Relative.MOTHER] = RelativeNavigation[Relative.FATHER];
-RelativeNavigation[Relative.BROTHER] = [RelativeDirection.SIBLING];
-RelativeNavigation[Relative.SISTER] = RelativeNavigation[Relative.BROTHER];
-RelativeNavigation[Relative.UNCLE] = [RelativeDirection.PARENT, RelativeDirection.SIBLING];
-RelativeNavigation[Relative.AUNT] = RelativeNavigation[Relative.UNCLE];
-RelativeNavigation[Relative.GRANDFATHER] = [RelativeDirection.PARENT, RelativeDirection.PARENT];
-RelativeNavigation[Relative.GRANDMOTHER] = RelativeNavigation[Relative.GRANDFATHER];
-RelativeNavigation[Relative.COUSINMALE] = [
-    RelativeDirection.PARENT, RelativeDirection.SIBLING, RelativeDirection.CHILD
+RelativeNavigation[Relative.Father] = [DirectRelationship.Parent];
+RelativeNavigation[Relative.Mother] = RelativeNavigation[Relative.Father];
+RelativeNavigation[Relative.Brother] = [DirectRelationship.Sibling];
+RelativeNavigation[Relative.Sister] = RelativeNavigation[Relative.Brother];
+RelativeNavigation[Relative.Uncle] = [DirectRelationship.Parent, DirectRelationship.Sibling];
+RelativeNavigation[Relative.Aunt] = RelativeNavigation[Relative.Uncle];
+RelativeNavigation[Relative.Grandfather] = [DirectRelationship.Parent, DirectRelationship.Parent];
+RelativeNavigation[Relative.Grandmother] = RelativeNavigation[Relative.Grandfather];
+RelativeNavigation[Relative.Cousinmale] = [
+    DirectRelationship.Parent, DirectRelationship.Sibling, DirectRelationship.Child
 ];
-RelativeNavigation[Relative.COUSINFEMALE] = RelativeNavigation[Relative.COUSINMALE];
-RelativeNavigation[Relative.HUSBAND] = [RelativeDirection.SIBLING];
-RelativeNavigation[Relative.WIFE] = RelativeNavigation[Relative.HUSBAND];
-RelativeNavigation[Relative.SON] = [RelativeDirection.CHILD];
-RelativeNavigation[Relative.DAUGHTER] = RelativeNavigation[Relative.SON];
-RelativeNavigation[Relative.NEPHEW] = [RelativeDirection.SIBLING, RelativeDirection.CHILD];
-RelativeNavigation[Relative.NIECE] = RelativeNavigation[Relative.NEPHEW];
-RelativeNavigation[Relative.GRANDSON] = [RelativeDirection.CHILD, RelativeDirection.CHILD];
-RelativeNavigation[Relative.GRANDDAUGHTER] = RelativeNavigation[Relative.GRANDSON];
-RelativeNavigation[Relative.GREATGRANDFATHER] = [RelativeDirection.PARENT, RelativeDirection.PARENT, RelativeDirection.PARENT];
-RelativeNavigation[Relative.GREATGRANDMOTHER] = RelativeNavigation[Relative.GREATGRANDFATHER];
-RelativeNavigation[Relative.GREATGRANDSON] = [RelativeDirection.CHILD, RelativeDirection.CHILD, RelativeDirection.CHILD];
-RelativeNavigation[Relative.GREATGRANDDAUGHTER] = RelativeNavigation[Relative.GREATGRANDSON];
+RelativeNavigation[Relative.Cousinfemale] = RelativeNavigation[Relative.Cousinmale];
+RelativeNavigation[Relative.Husband] = [DirectRelationship.Partner];
+RelativeNavigation[Relative.Wife] = RelativeNavigation[Relative.Husband];
+RelativeNavigation[Relative.Son] = [DirectRelationship.Child];
+RelativeNavigation[Relative.Daughter] = RelativeNavigation[Relative.Son];
+RelativeNavigation[Relative.Nephew] = [DirectRelationship.Sibling, DirectRelationship.Child];
+RelativeNavigation[Relative.Niece] = RelativeNavigation[Relative.Nephew];
+RelativeNavigation[Relative.Grandson] = [DirectRelationship.Child, DirectRelationship.Child];
+RelativeNavigation[Relative.Grandaughter] = RelativeNavigation[Relative.Grandson];
+RelativeNavigation[Relative.Greatgrandfather] = [DirectRelationship.Parent, DirectRelationship.Parent, DirectRelationship.Parent];
+RelativeNavigation[Relative.Greatgrandmother] = RelativeNavigation[Relative.Greatgrandfather];
+RelativeNavigation[Relative.Greatgrandson] = [DirectRelationship.Child, DirectRelationship.Child, DirectRelationship.Child];
+RelativeNavigation[Relative.Greatgranddaughter] = RelativeNavigation[Relative.Greatgrandson];
 
-export const RelativeSex : Record<number, Sex> = {};
-RelativeSex[Relative.FATHER] = Sex.MALE;
-RelativeSex[Relative.MOTHER] = Sex.FEMALE;
-RelativeSex[Relative.BROTHER] = Sex.MALE;
-RelativeSex[Relative.SISTER] = Sex.FEMALE;
-RelativeSex[Relative.UNCLE] = Sex.MALE;
-RelativeSex[Relative.AUNT] = Sex.FEMALE;
-RelativeSex[Relative.GRANDFATHER] = Sex.MALE;
-RelativeSex[Relative.GRANDMOTHER] = Sex.FEMALE;
-RelativeSex[Relative.COUSINMALE] = Sex.MALE;
-RelativeSex[Relative.COUSINFEMALE] = Sex.FEMALE;
-RelativeSex[Relative.HUSBAND] = Sex.MALE;
-RelativeSex[Relative.WIFE] = Sex.FEMALE;
-RelativeSex[Relative.SON] = Sex.MALE;
-RelativeSex[Relative.DAUGHTER] = Sex.FEMALE;
-RelativeSex[Relative.NEPHEW] = Sex.MALE;
-RelativeSex[Relative.NIECE] = Sex.FEMALE;
-RelativeSex[Relative.GRANDSON] = Sex.MALE;
-RelativeSex[Relative.GRANDDAUGHTER] = Sex.FEMALE;
-RelativeSex[Relative.GREATGRANDFATHER] = Sex.MALE;
-RelativeSex[Relative.GREATGRANDMOTHER] = Sex.FEMALE;
-RelativeSex[Relative.GREATGRANDSON] = Sex.MALE;
-RelativeSex[Relative.GREATGRANDDAUGHTER] = Sex.FEMALE;
-
-export type RelativeLabelLanguageSet = Record<number, string>;
-
-export const RelativeLabel : Record<string, RelativeLabelLanguageSet> = {
-    cz: czLanguageSet,
-    en: enLanguageSet,
-};
+export const RelativeSex : Record<number, HumanSex> = {};
+RelativeSex[Relative.Father] = HumanSex.Male;
+RelativeSex[Relative.Mother] = HumanSex.Female;
+RelativeSex[Relative.Brother] = HumanSex.Male;
+RelativeSex[Relative.Sister] = HumanSex.Female;
+RelativeSex[Relative.Uncle] = HumanSex.Male;
+RelativeSex[Relative.Aunt] = HumanSex.Female;
+RelativeSex[Relative.Grandfather] = HumanSex.Male;
+RelativeSex[Relative.Grandmother] = HumanSex.Female;
+RelativeSex[Relative.Cousinmale] = HumanSex.Male;
+RelativeSex[Relative.Cousinfemale] = HumanSex.Female;
+RelativeSex[Relative.Husband] = HumanSex.Male;
+RelativeSex[Relative.Wife] = HumanSex.Female;
+RelativeSex[Relative.Son] = HumanSex.Male;
+RelativeSex[Relative.Daughter] = HumanSex.Female;
+RelativeSex[Relative.Nephew] = HumanSex.Male;
+RelativeSex[Relative.Niece] = HumanSex.Female;
+RelativeSex[Relative.Grandson] = HumanSex.Male;
+RelativeSex[Relative.Grandaughter] = HumanSex.Female;
+RelativeSex[Relative.Greatgrandfather] = HumanSex.Male;
+RelativeSex[Relative.Greatgrandmother] = HumanSex.Female;
+RelativeSex[Relative.Greatgrandson] = HumanSex.Male;
+RelativeSex[Relative.Greatgranddaughter] = HumanSex.Female;

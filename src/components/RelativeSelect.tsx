@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
 import { Form } from 'react-bootstrap';
 import { useRecoilValue } from 'recoil';
+import { Translation } from '../data/localization/translation';
 import { Relative } from '../data/relative';
-import { RelativeLabel } from '../data/relativeProps';
 import { languageAtom } from '../state/atom';
 
 export type RelativeSelectProps = {
@@ -23,7 +23,7 @@ export const RelativeSelect = ({onChange, selected}: RelativeSelectProps) => {
         {Object.keys(Relative).filter(rel => !isNaN(Number(rel))).map(rel => {
           const relIndex = Number(rel);
           return <option key={rel} value={rel}>
-            {RelativeLabel[language][relIndex]}
+            {Translation[language].relativeSet[relIndex]}
           </option>
         })}
     </Form.Select>
