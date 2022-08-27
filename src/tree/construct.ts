@@ -11,6 +11,8 @@ export interface TreeConstructState {
     analysed: number;
 }
 
+const getFormattedInBraces = (str: string) => `(${str})`;
+
 export const constructFamilyTree = (
     rootNode: TreeNode, language: Language, relatives: Array<number>
 ) => {
@@ -75,7 +77,8 @@ const constructChildNode = (
   const child = {
     name: state.reached ?
         Translation[language].relativeSet[rel] :
-        Translation[language].basicSet[BasicLanguageSetKey.Child],
+        getFormattedInBraces(
+          Translation[language].basicSet[BasicLanguageSetKey.Child]),
     children: [],
     parent: state.actual,
     attributes: getNodeAttributes(language, state, rel),
@@ -93,7 +96,8 @@ const constructParentNode = (
 
     if (state.actual.parent === rootNode) {
       state.actual.parent = {
-        name: Translation[language].basicSet[BasicLanguageSetKey.Parent],
+        name: getFormattedInBraces(
+          Translation[language].basicSet[BasicLanguageSetKey.Parent]),
         children: [state.actual],
         parent: rootNode,
         attributes: {},
@@ -123,7 +127,8 @@ const constructPartnerNode = (
 
     while (state.actual.parent != rootNode) {
       const parent = {
-        name: Translation[language].basicSet[BasicLanguageSetKey.Parent],
+        name: getFormattedInBraces(
+          Translation[language].basicSet[BasicLanguageSetKey.Parent]),
         children: [],
         parent: partnerParent,
         attributes: {},
@@ -139,7 +144,8 @@ const constructPartnerNode = (
     const partner = {
       name: state.reached ?
         Translation[language].relativeSet[rel] :
-        Translation[language].basicSet[BasicLanguageSetKey.Parent],
+        getFormattedInBraces(
+          Translation[language].basicSet[BasicLanguageSetKey.Parent]),
       children: [],
       parent: partnerParent,
       attributes: getNodeAttributes(language, state, rel),
