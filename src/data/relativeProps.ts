@@ -1,5 +1,4 @@
 import { Relative } from "./relative";
-import { HumanSex } from "./humanSex";
 
 export enum DirectRelationship {
     Sibling = 0,
@@ -33,27 +32,3 @@ RelativeNavigation[Relative.Greatgrandfather] = [DirectRelationship.Parent, Dire
 RelativeNavigation[Relative.Greatgrandmother] = RelativeNavigation[Relative.Greatgrandfather];
 RelativeNavigation[Relative.Greatgrandson] = [DirectRelationship.Child, DirectRelationship.Child, DirectRelationship.Child];
 RelativeNavigation[Relative.Greatgranddaughter] = RelativeNavigation[Relative.Greatgrandson];
-
-export const RelativeSex : Record<number, HumanSex> = {};
-RelativeSex[Relative.Father] = HumanSex.Male;
-RelativeSex[Relative.Mother] = HumanSex.Female;
-RelativeSex[Relative.Brother] = HumanSex.Male;
-RelativeSex[Relative.Sister] = HumanSex.Female;
-RelativeSex[Relative.Uncle] = HumanSex.Male;
-RelativeSex[Relative.Aunt] = HumanSex.Female;
-RelativeSex[Relative.Grandfather] = HumanSex.Male;
-RelativeSex[Relative.Grandmother] = HumanSex.Female;
-RelativeSex[Relative.Cousinmale] = HumanSex.Male;
-RelativeSex[Relative.Cousinfemale] = HumanSex.Female;
-RelativeSex[Relative.Husband] = HumanSex.Male;
-RelativeSex[Relative.Wife] = HumanSex.Female;
-RelativeSex[Relative.Son] = HumanSex.Male;
-RelativeSex[Relative.Daughter] = HumanSex.Female;
-RelativeSex[Relative.Nephew] = HumanSex.Male;
-RelativeSex[Relative.Niece] = HumanSex.Female;
-RelativeSex[Relative.Grandson] = HumanSex.Male;
-RelativeSex[Relative.Grandaughter] = HumanSex.Female;
-RelativeSex[Relative.Greatgrandfather] = HumanSex.Male;
-RelativeSex[Relative.Greatgrandmother] = HumanSex.Female;
-RelativeSex[Relative.Greatgrandson] = HumanSex.Male;
-RelativeSex[Relative.Greatgranddaughter] = HumanSex.Female;

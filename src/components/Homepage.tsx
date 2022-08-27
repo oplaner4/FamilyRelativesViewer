@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { Container, Form, Col, Row } from 'react-bootstrap';
 import { RelativesChooserRow, defaultRelative } from './RelativesChooserRow';
 import { GraphicViewer } from './GraphicViewer';
@@ -10,6 +10,17 @@ import { BasicLanguageSetKey } from '../data/localization/set';
 export const Homepage = () => {
   const [relatives, setRelatives] = useState<Array<number>>([defaultRelative]);
   const [language, setLanguage] = useRecoilState(languageAtom);
+
+  useEffect(() => {
+    const of = Translation[language].basicSet[BasicLanguageSetKey.Of].toLowerCase();
+    const seq = relatives
+      .map(rel => Translation[language].relativeSet[rel])
+      .join(` ${of} `);
+
+    const viewer = Translation[language].basicSet[BasicLanguageSetKey.Viewer];
+
+    document.title = `${seq} - ${viewer}`;
+  }, [language, relatives]);
 
   return (
     <Container className="p-4">

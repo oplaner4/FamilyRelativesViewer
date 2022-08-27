@@ -2,28 +2,32 @@ import { BasicLanguageSetKey } from "../data/localization/set";
 import { Language, Translation } from "../data/localization/translation";
 import { Relative } from "../data/relative";
 import { DirectRelationship, RelativeNavigation } from "../data/relativeProps";
+import { getNodeAttributes } from "./attributes";
 import { TreeNode } from "./node";
 
-interface TreeConstructState {
+export interface TreeConstructState {
     actual: TreeNode;
     reached: boolean;
+    analysed: number;
 }
 
 export const constructFamilyTree = (
     rootNode: TreeNode, language: Language, relatives: Array<number>
-): TreeNode => {
+) => {
     const me: TreeNode = {
       name: Translation[language].basicSet[BasicLanguageSetKey.Me],
       children: [],
       parent: rootNode,
+      attributes: {},
     };
 
     rootNode.children.push(me);
 
     const state: TreeConstructState = {
-        actual: me,
-        reached: false,
-    }
+      actual: me,
+      reached: false,
+      analysed: 0,
+    };
 
     relatives.forEach((_, relIndex: number) => {
       const rel = relatives[relatives.length - 1 - relIndex];
@@ -49,9 +53,8 @@ export const constructFamilyTree = (
                 break;
         }
       });
+      state.analysed++;
     });
-
-    return rootNode;
 };
 
 const constructSiblingNode = (
@@ -75,6 +78,7 @@ const constructChildNode = (
         Translation[language].basicSet[BasicLanguageSetKey.Child],
     children: [],
     parent: state.actual,
+    attributes: getNodeAttributes(language, state, rel),
   };
 
   state.actual.children.push(child);
@@ -92,6 +96,7 @@ const constructParentNode = (
         name: Translation[language].basicSet[BasicLanguageSetKey.Parent],
         children: [state.actual],
         parent: rootNode,
+        attributes: {},
       };
 
       rootNode.children = rootNode.children.filter(child => child !== state.actual);
@@ -103,6 +108,7 @@ const constructParentNode = (
           state.actual.parent.name = Translation[language].relativeSet[rel];
       }
 
+      state.actual.parent.attributes = getNodeAttributes(language, state, rel);
       state.actual = state.actual.parent;
     }
 };
@@ -120,6 +126,7 @@ const constructPartnerNode = (
         name: Translation[language].basicSet[BasicLanguageSetKey.Parent],
         children: [],
         parent: partnerParent,
+        attributes: {},
       };
 
       partnerParent.children.push(parent);
@@ -135,11 +142,9 @@ const constructPartnerNode = (
         Translation[language].basicSet[BasicLanguageSetKey.Parent],
       children: [],
       parent: partnerParent,
-    }
+      attributes: getNodeAttributes(language, state, rel),
+    };
 
     partnerParent.children.push(partner);
     state.actual = partner;
 };
-
-
-

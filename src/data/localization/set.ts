@@ -9,6 +9,7 @@ export enum BasicLanguageSetKey {
     AddTitle = 7,
     Of = 8,
     TreeRootNode = 9,
+    Order = 10,
 }
 
 export type BasicLanguageSet = Record<number, string>;

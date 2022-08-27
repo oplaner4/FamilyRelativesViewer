@@ -65,16 +65,19 @@ export const GraphicViewer = ({relatives}: GraphicViewerProps) => {
     }
   }, [ref.current, width]);
 
-  const root: TreeNode = {
+  const root = {
     name: Translation[language].basicSet[BasicLanguageSetKey.TreeRootNode],
     children: [],
     parent: null,
+    attributes: {},
   };
+
+  constructFamilyTree(root, language, relatives);
 
   return (
     <div style={{ width: '100%', height: '60em' }} ref={ref}>
       <Tree
-        data={constructFamilyTree(root, language, relatives)}
+        data={root}
         orientation="vertical"
         translate={{ x: treeWrapperWidth / 2, y: 40 }}
       />

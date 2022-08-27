@@ -12,6 +12,7 @@ basicLanguageSet[BasicLanguageSetKey.Add] = 'Add';
 basicLanguageSet[BasicLanguageSetKey.AddTitle] = 'Add relative';
 basicLanguageSet[BasicLanguageSetKey.Of] = 'Of';
 basicLanguageSet[BasicLanguageSetKey.TreeRootNode] = 'Family tree';
+basicLanguageSet[BasicLanguageSetKey.Order] = 'Order';
 
 const relativesLanguageSet: RelativeLanguageSet  = {};
 relativesLanguageSet[Relative.Father] = 'Father';
