@@ -46,7 +46,7 @@ export const RelativesChooserRow = ({relatives, onChange}: RelativesChooserRowPr
         )}
         <Col xs={'auto'} className="mb-3">
           <Button title={Translation[language].basicSet[BasicLanguageSetKey.AddTitle]} variant="dark" onClick={onAddRelative}>
-            <i className="bi bi-plus"></i> {Translation[language].basicSet[BasicLanguageSetKey.Add]}
+            {Translation[language].basicSet[BasicLanguageSetKey.Add]}
           </Button>
         </Col> 
         <Col xs={4} sm={3} md={2} lg={1} className="mb-3">
