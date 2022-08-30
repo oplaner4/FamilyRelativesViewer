@@ -2,6 +2,7 @@ import { BasicLanguageSetKey } from "../data/localization/set";
 import { Language, Translation } from "../data/localization/translation";
 import { Relative } from "../data/relative";
 import { DirectRelationship, RelativeNavigation } from "../data/relativeProps";
+import { getFormattedInBraces } from "../misc/utils";
 import { getNodeAttributes } from "./attributes";
 import { TreeNode } from "./node";
 
@@ -10,8 +11,6 @@ export interface TreeConstructState {
     reached: boolean;
     analysed: number;
 }
-
-const getFormattedInBraces = (str: string) => `(${str})`;
 
 export const constructFamilyTree = (
     rootNode: TreeNode, language: Language, relatives: Array<number>

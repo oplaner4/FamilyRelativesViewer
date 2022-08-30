@@ -8,7 +8,6 @@ import { languageAtom } from '../state/atom';
 import useWindowDimensions from '../misc/utils';
 import { BasicLanguageSetKey } from '../data/localization/set';
 import { constructFamilyTree } from '../tree/construct';
-import { TreeNode } from '../tree/node';
 
 export type GraphicViewerProps = {
   relatives: Array<number>;
@@ -16,44 +15,6 @@ export type GraphicViewerProps = {
 
 export const GraphicViewer = ({relatives}: GraphicViewerProps) => {
   const language = useRecoilValue(languageAtom);
-  /*const orgChart = {
-    name: 'Family tree',
-    orientation: 'vertical',
-    children: [
-      {
-        name: 'Manager',
-        attributes: {
-          department: 'Production',
-        },
-        children: [
-          {
-            name: 'Foreman',
-            attributes: {
-              department: 'Fabrication',
-            },
-            children: [
-              {
-                name: 'Worker',
-              },
-            ],
-          },
-          {
-            name: 'Foreman',
-            attributes: {
-              department: 'Assembly',
-            },
-            children: [
-              {
-                name: 'Worker',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  };
-*/
-
   const [treeWrapperWidth, setTreeWrapperWidth] = useState(0);
   const { width } = useWindowDimensions();
 
