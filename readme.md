@@ -1,5 +1,5 @@
 # Family relatives viewer
-NodeJs React web application
+NodeJs React Typescript web application
 
 ## Installation
 Use command
